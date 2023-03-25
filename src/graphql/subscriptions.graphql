@@ -1,0 +1,169 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateFlight($filter: ModelSubscriptionFlightFilterInput) {
+  onCreateFlight(filter: $filter) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateFlight($filter: ModelSubscriptionFlightFilterInput) {
+  onUpdateFlight(filter: $filter) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteFlight($filter: ModelSubscriptionFlightFilterInput) {
+  onDeleteFlight(filter: $filter) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
+  onCreatePassenger(filter: $filter) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
+  onUpdatePassenger(filter: $filter) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeletePassenger($filter: ModelSubscriptionPassengerFilterInput) {
+  onDeletePassenger(filter: $filter) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}

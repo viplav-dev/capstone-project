@@ -1,18 +1,21 @@
 <div class="my-4" *ngFor="let flight of flightDetails">
   <div
     class="left-0 right-0 m-auto bg-white w-fit py-10 px-20 shadow-xl rounded"
+    *ngIf="flight"
   >
     <div class="flex flex-grow justify-center align-middle">
       <div class="flex-col border-r-2 p-5 pr-10">
         <img src="{{ flight.airlineLogo }}" class="w-24" alt="" />
-        <p class="text-center font-bold">{{ flight.flightId }}</p>
+        <p class="text-center font-bold">{{ flight.flightNumber }}</p>
       </div>
       <div class="flex p-5 pr-10">
         <div class="flex flex-col justify-center">
           <p class="font-bold text-lg">
             {{ flight.departureTime | date : "shortTime" }}
           </p>
-          <p class="text-center font-semibold">{{ flight.origin }}</p>
+          <p class="text-center font-semibold">
+            {{ flight.origin | uppercase }}
+          </p>
         </div>
       </div>
       <div class="flex p-5 pr-10">
@@ -49,12 +52,15 @@
           <p class="font-bold text-lg">
             {{ flight.arrivalTime | date : "shortTime" }}
           </p>
-          <p class="text-center font-semibold">{{ flight.destination }}</p>
+          <p class="text-center font-semibold">
+            {{ flight.destination | uppercase }}
+          </p>
         </div>
       </div>
       <div class="flex p-5">
         <div class="flex flex-col justify-center">
           <button
+            (click)="onFlightSelect(flight)"
             class="bg-orange-500 font-bold w-fit text-white rounded-full py-2 px-16 hover:bg-orange-400 active:bg-orange-500 transition duration-300 ease-in-out flex items-center cursor-pointer"
           >
             Book Now

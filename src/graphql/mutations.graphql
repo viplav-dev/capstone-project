@@ -1,0 +1,187 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateFlight(
+  $input: CreateFlightInput!
+  $condition: ModelFlightConditionInput
+) {
+  createFlight(input: $input, condition: $condition) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateFlight(
+  $input: UpdateFlightInput!
+  $condition: ModelFlightConditionInput
+) {
+  updateFlight(input: $input, condition: $condition) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteFlight(
+  $input: DeleteFlightInput!
+  $condition: ModelFlightConditionInput
+) {
+  deleteFlight(input: $input, condition: $condition) {
+    id
+    flightNumber
+    airlineName
+    airlineLogo
+    origin
+    destination
+    flightPrice
+    departureTime
+    arrivalTime
+    passengers {
+      items {
+        id
+        flightId
+        firstName
+        lastName
+        email
+        phone
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreatePassenger(
+  $input: CreatePassengerInput!
+  $condition: ModelPassengerConditionInput
+) {
+  createPassenger(input: $input, condition: $condition) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdatePassenger(
+  $input: UpdatePassengerInput!
+  $condition: ModelPassengerConditionInput
+) {
+  updatePassenger(input: $input, condition: $condition) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}
+mutation DeletePassenger(
+  $input: DeletePassengerInput!
+  $condition: ModelPassengerConditionInput
+) {
+  deletePassenger(input: $input, condition: $condition) {
+    id
+    flightId
+    flight {
+      id
+      flightNumber
+      airlineName
+      airlineLogo
+      origin
+      destination
+      flightPrice
+      departureTime
+      arrivalTime
+      passengers {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+    updatedAt
+  }
+}

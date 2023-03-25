@@ -1,9 +1,9 @@
-<div class="w-full"><div class="relative">
+<div class="w-full">
+  <div class="relative">
     <svg
       id="wave"
       style="transform: rotate(180deg); transition: 0.3s"
       viewBox="0 0 1440 490"
-      
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -28,7 +28,12 @@
       class="search-box shadow-xl rounded mx-20 left-0 right-0 p-10 sha absolute top-28 bg-white z-20 lg:top-64"
     >
       <h2 class="font-bold text-black text-xl">Book Flights</h2>
-      <form [formGroup]="bookTickets">
+      <form
+        method="get"
+        [formGroup]="searchFlights"
+        (ngSubmit)="onSearchFlight(searchFlights.value)"
+        action="#"
+      >
         <div class="flex flex-col justify-between w-full gap-3 lg:flex-row">
           <div class="flex flex-col w-full">
             <div class="form-control">
@@ -39,6 +44,8 @@
                 type="text"
                 placeholder="DXB Dubai"
                 class="input input-bordered"
+                name="origin"
+                formControlName="origin"
               />
             </div>
           </div>
@@ -51,6 +58,8 @@
                 type="text"
                 placeholder="DEL DELHI"
                 class="input input-bordered"
+                name="destination"
+                formControlName="destination"
               />
             </div>
           </div>
@@ -59,7 +68,12 @@
               <label class="label">
                 <span class="label-text">Departure Date:</span>
               </label>
-              <input type="date" class="input input-bordered" />
+              <input
+                type="date"
+                class="input input-bordered"
+                name="departureDate"
+                formControlName="departureDate"
+              />
             </div>
           </div>
           <div class="flex flex-col w-full">
@@ -70,7 +84,9 @@
               <input
                 type="number"
                 placeholder="1"
+                name="noOfPassengers"
                 class="input input-bordered w-full"
+                formControlName="noOfPassengers"
               />
             </div>
           </div>
@@ -84,6 +100,5 @@
       </form>
     </div>
   </div>
-  </div>
-    <app-show-flights ></app-show-flights>
-  
+</div>
+<app-show-flights></app-show-flights>

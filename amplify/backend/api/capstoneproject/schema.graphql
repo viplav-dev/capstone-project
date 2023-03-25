@@ -1,0 +1,27 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type flight @model {
+  id: ID!
+  flightNumber: String!
+  airlineName: String!
+  airlineLogo: String!
+  origin: String!
+  destination: String!
+  flightPrice: Int!
+  departureTime: AWSDateTime!
+  arrivalTime: AWSDateTime!
+  passengers: [passenger] @hasMany(indexName: "byFlight", fields: ["id"])
+}
+
+type passenger @model {
+  id: ID!
+  flightId: ID! @index(name: "byFlight")
+  flight: flight @belongsTo (fields: ["flightId"])
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String!
+}

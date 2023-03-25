@@ -1,0 +1,118 @@
+<div
+  class="left-0 right-0 m-auto bg-white w-fit py-10 px-20 shadow-xl rounded my-16"
+  *ngIf="flightSelected"
+>
+  <div class="flex flex-grow justify-between align-middle border-0 border-b-2">
+    <div class="flex-col border-r-2 p-5 pr-10">
+      <img src="{{ flightSelected.airlineLogo }}" class="w-24" alt="" />
+      <p class="text-center font-bold">{{ flightSelected.flightNumber }}</p>
+    </div>
+    <div class="flex p-5 pr-10">
+      <div class="flex flex-col justify-center">
+        <p class="font-bold text-lg">
+          {{ flightSelected.departureTime | date : "shortTime" }}
+        </p>
+        <p class="text-center font-semibold">
+          {{ flightSelected.origin | uppercase }}
+        </p>
+      </div>
+    </div>
+    <div class="flex p-5 pr-10">
+      <div class="flex flex-col justify-center">
+        <p class="font-bold text-lg text-center">
+          ₹{{ flightSelected.flightPrice }}
+          <span class="text-gray-400 font-normal">/ pax </span>
+        </p>
+        <div class="border-2 border-dotted my-3 border-gray-200 relative">
+          <svg
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 12 12"
+            enable-background="new 0 0 12 12"
+            xml:space="preserve"
+            class="airplane-icon"
+          >
+            <path
+              fill="#0a0a0a"
+              d="M3.922,12h0.499c0.181,0,0.349-0.093,0.444-0.247L7.949,6.8l3.233-0.019C11.625,6.791,11.989,6.44,12,6 c-0.012-0.44-0.375-0.792-0.818-0.781L7.949,5.2L4.866,0.246C4.77,0.093,4.602,0,4.421,0L3.922,0c-0.367,0-0.62,0.367-0.489,0.71 L5.149,5.2l-2.853,0L1.632,3.87c-0.084-0.167-0.25-0.277-0.436-0.288L0,3.509L1.097,6L0,8.491l1.196-0.073 C1.382,8.407,1.548,8.297,1.632,8.13L2.296,6.8h2.853l-1.716,4.49C3.302,11.633,3.555,12,3.922,12"
+            ></path>
+          </svg>
+        </div>
+        <p class="font-semibold text-lg">
+          {{ flightSelected.departureTime | date : "fullDate" }}
+        </p>
+      </div>
+    </div>
+    <div class="flex p-5 pr-10">
+      <div class="flex flex-col justify-center">
+        <p class="font-bold text-lg">
+          {{ flightSelected.arrivalTime | date : "shortTime" }}
+        </p>
+        <p class="text-center font-semibold">
+          {{ flightSelected.destination | uppercase }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <h2 class="font-bold text-xl my-5">Book Flight Ticket</h2>
+  <form
+    [formGroup]="bookTickets"
+    (ngSubmit)="onBookTickets(this.bookTickets.value)"
+  >
+    <div class="inline-flex w-full gap-5">
+      <div class="form-control w-full">
+        <label class="label">
+          <span class="label-text">First Name</span>
+        </label>
+        <input
+          type="text"
+          placeholder="First Name"
+          class="input input-bordered w-full"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="form-control w-full">
+        <label class="label">
+          <span class="label-text">Last Name</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          class="input input-bordered w-full"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+    <div class="form-control w-full">
+      <label class="label">
+        <span class="label-text">Email Address</span>
+      </label>
+      <input
+        type="text"
+        placeholder="someone@example.com"
+        class="input input-bordered w-full"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-control w-full">
+      <label class="label">
+        <span class="label-text">Mobile Number</span>
+      </label>
+      <input
+        type="number"
+        placeholder="Mobile Number"
+        class="input input-bordered w-full"
+        formControlName="phone"
+      />
+    </div>
+    <input
+      type="submit"
+      value="Book Ticket"
+      class="bg-orange-500 font-bold w-fit text-white rounded-full py-2 px-20 hover:bg-orange-400 active:bg-orange-500 transition duration-300 ease-in-out flex items-center mt-4 cursor-pointer mr-0 m-auto"
+    />
+  </form>
+</div>
+{{ flightSelected | json }}

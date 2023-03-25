@@ -8,12 +8,14 @@ import awsExports from 'src/aws-exports';
 })
 export class AuthService {
   AmplifyAuth!: AuthenticatorService;
-  constructor(public authenticator: AuthenticatorService) {
+  constructor(private authenticator: AuthenticatorService) {
     Amplify.configure(awsExports);
     this.AmplifyAuth = authenticator;
   }
   isLoggedIn() {
+    this.AmplifyAuth;
     if (this.AmplifyAuth.authStatus === 'authenticated') {
+      console.log('User is logged in');
       return true;
     } else {
       return false;

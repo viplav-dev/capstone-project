@@ -13,6 +13,7 @@ subscription OnCreateFlight($filter: ModelSubscriptionFlightFilterInput) {
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -41,6 +42,7 @@ subscription OnUpdateFlight($filter: ModelSubscriptionFlightFilterInput) {
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -69,6 +71,7 @@ subscription OnDeleteFlight($filter: ModelSubscriptionFlightFilterInput) {
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -86,6 +89,7 @@ subscription OnDeleteFlight($filter: ModelSubscriptionFlightFilterInput) {
 subscription OnCreatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
   onCreatePassenger(filter: $filter) {
     id
+    userId
     flightId
     flight {
       id
@@ -114,6 +118,7 @@ subscription OnCreatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
 subscription OnUpdatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
   onUpdatePassenger(filter: $filter) {
     id
+    userId
     flightId
     flight {
       id
@@ -142,6 +147,7 @@ subscription OnUpdatePassenger($filter: ModelSubscriptionPassengerFilterInput) {
 subscription OnDeletePassenger($filter: ModelSubscriptionPassengerFilterInput) {
   onDeletePassenger(filter: $filter) {
     id
+    userId
     flightId
     flight {
       id

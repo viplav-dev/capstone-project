@@ -16,6 +16,7 @@ mutation CreateFlight(
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -47,6 +48,7 @@ mutation UpdateFlight(
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -78,6 +80,7 @@ mutation DeleteFlight(
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -98,6 +101,7 @@ mutation CreatePassenger(
 ) {
   createPassenger(input: $input, condition: $condition) {
     id
+    userId
     flightId
     flight {
       id
@@ -129,6 +133,7 @@ mutation UpdatePassenger(
 ) {
   updatePassenger(input: $input, condition: $condition) {
     id
+    userId
     flightId
     flight {
       id
@@ -160,6 +165,7 @@ mutation DeletePassenger(
 ) {
   deletePassenger(input: $input, condition: $condition) {
     id
+    userId
     flightId
     flight {
       id

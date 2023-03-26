@@ -18,8 +18,9 @@ type flight @model {
 
 type passenger @model {
   id: ID!
+  userId: ID!
   flightId: ID! @index(name: "byFlight")
-  flight: flight @belongsTo (fields: ["flightId"])
+  flight: flight @belongsTo(fields: ["flightId"])
   firstName: String!
   lastName: String!
   email: String!

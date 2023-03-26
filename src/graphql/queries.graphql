@@ -13,6 +13,7 @@ query GetFlight($id: ID!) {
     passengers {
       items {
         id
+        userId
         flightId
         firstName
         lastName
@@ -55,6 +56,7 @@ query ListFlights(
 query GetPassenger($id: ID!) {
   getPassenger(id: $id) {
     id
+    userId
     flightId
     flight {
       id
@@ -88,6 +90,7 @@ query ListPassengers(
   listPassengers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      userId
       flightId
       flight {
         id
@@ -128,6 +131,7 @@ query PassengersByFlightId(
   ) {
     items {
       id
+      userId
       flightId
       flight {
         id

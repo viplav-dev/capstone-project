@@ -120,6 +120,7 @@ export type ModelpassengerConnection = {
 export type passenger = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: flight | null;
   firstName: string;
@@ -148,6 +149,7 @@ export type DeleteFlightInput = {
 
 export type CreatePassengerInput = {
   id?: string | null;
+  userId: string;
   flightId: string;
   firstName: string;
   lastName: string;
@@ -156,6 +158,7 @@ export type CreatePassengerInput = {
 };
 
 export type ModelPassengerConditionInput = {
+  userId?: ModelIDInput | null;
   flightId?: ModelIDInput | null;
   firstName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
@@ -184,6 +187,7 @@ export type ModelIDInput = {
 
 export type UpdatePassengerInput = {
   id: string;
+  userId?: string | null;
   flightId?: string | null;
   firstName?: string | null;
   lastName?: string | null;
@@ -218,6 +222,7 @@ export type ModelFlightConnection = {
 
 export type ModelPassengerFilterInput = {
   id?: ModelIDInput | null;
+  userId?: ModelIDInput | null;
   flightId?: ModelIDInput | null;
   firstName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
@@ -241,6 +246,7 @@ export enum ModelSortDirection {
 
 export type ModelpassengerFilterInput = {
   id?: ModelIDInput | null;
+  userId?: ModelIDInput | null;
   flightId?: ModelIDInput | null;
   firstName?: ModelStringInput | null;
   lastName?: ModelStringInput | null;
@@ -309,6 +315,7 @@ export type ModelSubscriptionIntInput = {
 
 export type ModelSubscriptionPassengerFilterInput = {
   id?: ModelSubscriptionIDInput | null;
+  userId?: ModelSubscriptionIDInput | null;
   flightId?: ModelSubscriptionIDInput | null;
   firstName?: ModelSubscriptionStringInput | null;
   lastName?: ModelSubscriptionStringInput | null;
@@ -334,6 +341,7 @@ export type CreateFlightMutation = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -364,6 +372,7 @@ export type UpdateFlightMutation = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -394,6 +403,7 @@ export type DeleteFlightMutation = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -411,6 +421,7 @@ export type DeleteFlightMutation = {
 export type CreatePassengerMutation = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -441,6 +452,7 @@ export type CreatePassengerMutation = {
 export type UpdatePassengerMutation = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -471,6 +483,7 @@ export type UpdatePassengerMutation = {
 export type DeletePassengerMutation = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -514,6 +527,7 @@ export type GetFlightQuery = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -554,6 +568,7 @@ export type ListFlightsQuery = {
 export type GetPassengerQuery = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -586,6 +601,7 @@ export type ListPassengersQuery = {
   items: Array<{
     __typename: "passenger";
     id: string;
+    userId: string;
     flightId: string;
     flight?: {
       __typename: "flight";
@@ -616,6 +632,7 @@ export type PassengersByFlightIdQuery = {
   items: Array<{
     __typename: "passenger";
     id: string;
+    userId: string;
     flightId: string;
     flight?: {
       __typename: "flight";
@@ -657,6 +674,7 @@ export type OnCreateFlightSubscription = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -687,6 +705,7 @@ export type OnUpdateFlightSubscription = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -717,6 +736,7 @@ export type OnDeleteFlightSubscription = {
     items: Array<{
       __typename: "passenger";
       id: string;
+      userId: string;
       flightId: string;
       firstName: string;
       lastName: string;
@@ -734,6 +754,7 @@ export type OnDeleteFlightSubscription = {
 export type OnCreatePassengerSubscription = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -764,6 +785,7 @@ export type OnCreatePassengerSubscription = {
 export type OnUpdatePassengerSubscription = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -794,6 +816,7 @@ export type OnUpdatePassengerSubscription = {
 export type OnDeletePassengerSubscription = {
   __typename: "passenger";
   id: string;
+  userId: string;
   flightId: string;
   flight?: {
     __typename: "flight";
@@ -846,6 +869,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -892,6 +916,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -938,6 +963,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -971,6 +997,7 @@ export class APIService {
         createPassenger(input: $input, condition: $condition) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1017,6 +1044,7 @@ export class APIService {
         updatePassenger(input: $input, condition: $condition) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1063,6 +1091,7 @@ export class APIService {
         deletePassenger(input: $input, condition: $condition) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1119,6 +1148,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -1190,6 +1220,7 @@ export class APIService {
         getPassenger(id: $id) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1236,6 +1267,7 @@ export class APIService {
           items {
             __typename
             id
+            userId
             flightId
             flight {
               __typename
@@ -1295,6 +1327,7 @@ export class APIService {
           items {
             __typename
             id
+            userId
             flightId
             flight {
               __typename
@@ -1362,6 +1395,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -1409,6 +1443,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -1456,6 +1491,7 @@ export class APIService {
             items {
               __typename
               id
+              userId
               flightId
               firstName
               lastName
@@ -1490,6 +1526,7 @@ export class APIService {
         onCreatePassenger(filter: $filter) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1537,6 +1574,7 @@ export class APIService {
         onUpdatePassenger(filter: $filter) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
@@ -1584,6 +1622,7 @@ export class APIService {
         onDeletePassenger(filter: $filter) {
           __typename
           id
+          userId
           flightId
           flight {
             __typename
